@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Describer (Local M3)</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}"> <style>
+         /* Styles simples pour le feedback */
+         #spinner { display: none; /* Caché par défaut */ }
+         #preview { max-width: 100%; height: auto; margin-top: 15px; display: none; }
+     </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h6>MIT-TAM-2024-2025  : </h6>
+        <hr>
+        <h6>par: Omar BOUARGUAN et Aboubakr OUACIFI</h6>
+        <hr>
+        <h1>Projet 3 : image-to-text</h1>
+        <form id="upload-form" enctype="multipart/form-data">
+            <div class="mb-3">
+                <label for="imageInput" class="form-label">Choisissez une image (png, jpg, jpeg)</label>
+                <input class="form-control" type="file" id="imageInput" name="image" accept="image/png, image/jpeg" required>
+            </div>
+            <button type="submit" class="btn btn-primary" id="submit-button">
+                <span class="spinner-border spinner-border-sm" role="status" aria-hidden="true" id="spinner"></span>
+                Décrire
+            </button>
+        </form>
+
+        <img id="preview" src="#" alt="Aperçu de l'image uploadée"/>
+
+         <div id="result-area" class="mt-4">
+            <div id="result" class="alert alert-info" style="display: none;">
+                <h3>Description :</h3>
+                <p id="description"></p>
+            </div>
+             <div id="error" class="alert alert-danger" style="display: none;">
+                 <h3>Erreur :</h3>
+                <p id="error-message"></p>
+            </div>
+        </div>
+
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>
